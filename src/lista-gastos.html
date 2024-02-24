@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Gastos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="endpoints.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            getListaGastos();
+        });
+    </script>
+    <style>
+        h1 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        body {
+            background-color: #2c3e50; /* Cor de fundo escura */
+            color: #fff; /* Cor do texto */
+        }
+
+        .container {
+            margin-top: 80px;
+        }
+
+        .thead-dark th {
+            background-color: #343a40; /* Cor de fundo escura para o cabeçalho */
+            color: #28a745; /* Cor do texto do cabeçalho */
+            border-color: #454d55; /* Cor da borda do cabeçalho */
+        }
+
+        .table td, .table th {
+            border-color: #454d55; /* Cor da borda das células */
+        }
+
+        .table tbody tr:nth-of-type(odd) {
+            background-color: #31435a; /* Cor de fundo das linhas ímpares */
+        }
+
+        .table tbody tr:nth-of-type(even) {
+            background-color: #273646; /* Cor de fundo das linhas ímpares */
+        }
+
+        .table tbody tr:hover {
+            background-color: #32943a; /* Cor de fundo ao passar o mouse sobre as linhas */
+        }
+
+        .table tbody td {
+            color: #fff; /* Cor do texto das células */
+            text-align: center;
+        }
+
+        #loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(39, 34, 34, 0.8);
+            z-index: 9999;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        #loading img {
+            width: 160px; /* Ajuste o valor conforme necessário */
+            height: 160px; /* Ajuste o valor conforme necessário */
+        }   
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <h1>Tabela de Despesas</h1>
+        <table id="tabela" class="table">
+            <thead class="thead-dark"> <!-- Bootstrap class para cabeçalho escuro -->
+            <tr>
+                <th scope="col" style="color: #1ada47;" class="text-center" >DESCRIÇÃO</th>
+                <th scope="col" style="color: #1ada47;" class="text-center">VALOR (R$)</th>
+                <th scope="col" style="color: #1ada47;" class="text-center">SITUAÇÃO</th>
+                <th scope="col" style="color: #1ada47;" class="text-center">DATA MÁXIMA P/ PAGAR</th>
+                <!-- Adicione mais colunas conforme necessário -->
+            </tr>
+            </thead>
+            <tbody>
+            <!-- As linhas da tabela serão adicionadas aqui -->
+            </tbody>
+        </table>
+    </div>
+    <div id="loading-overlay">
+        <div id="loading">
+            <img src="Images/loading-cat.gif">
+        </div>
+    </div>
+</body>
+</html>
