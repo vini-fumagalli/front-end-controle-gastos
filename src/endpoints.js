@@ -101,6 +101,74 @@ async function signOff() {
     }
 } 
 
+async function signUp () {
+
+    document.getElementById('error-message-exists').style.display = 'none';
+    document.getElementById('error-message-password').style.display = 'none';
+    document.getElementById('loading-overlay').style.display = 'block';
+
+    var newUsuarioObjeto = {
+        usuario: document.getElementById("username").value,
+        senha: document.getElementById("password").value,
+        confirmaSenha: document.getElementById("confirmPassword").value
+    };
+
+    var endpoint = `${API_URL}/login/sign-up`;
+    const response = await axios.post(endpoint, newUsuarioObjeto)
+
+    .catch(function (error) {
+        const badRequest = 400;
+        const conflict = 409
+        
+        if(error.response.status == badRequest) {
+            document.getElementById('error-message-password').style.display = 'block';
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+
+        if(error.response.status == conflict) {
+            document.getElementById('error-message-exists').style.display = 'block';
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+    });
+
+    const sucesso = response.data.sucesso;
+
+    if(sucesso === true) {
+        var loginObjeto = {
+            usuario: newUsuarioObjeto.usuario,
+            senha: newUsuarioObjeto.senha
+        };
+
+        let endpoint = `${API_URL}/login/sign-in`;
+        await axios.post(endpoint, loginObjeto);
+
+        redirectTo("update-salario.html");
+    }
+
+    document.getElementById('loading-overlay').style.display = 'none';
+}
+
+async function updateSalario() {
+    document.getElementById('loading-overlay').style.display = 'block';
+    document.getElementById('update-successful').style.display = 'none';
+
+    var salario = document.getElementById('salary').value;
+    salario = parseFloat(salario.replace(",", "."));
+
+    var endpoint = `${API_URL}/gasto/salario/${salario}`;
+    const response = await axios.put(endpoint, null);
+
+    if(response.data.sucesso === true) {
+        document.getElementById('loading-overlay').style.display = 'none';
+
+        document.getElementById('update-successful').style.display = 'block';
+        setTimeout(function() {
+            document.getElementById('update-successful').style.display = 'none';
+            redirectTo('lista-gastos.html');
+        }, 1200);
+    } 
+}
+
 function redirectTo(page) {
     window.location.href = page;
 }
