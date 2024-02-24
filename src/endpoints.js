@@ -93,7 +93,7 @@ async function signOff() {
         const sucesso = response.data.response;
 
         if(sucesso === true) {
-            redirectToLogin("login.html");
+            redirectTo("login.html");
         }
 
     } catch(error) {
