@@ -34,6 +34,10 @@ async function getListaGastos() {
                 <td><b>${gasto.valor.toLocaleString('pt-BR')}<b></td>
                 <td><b>${gasto.pago == true ? 'Pago' : 'Pendente'}<b></td>
                 <td><b>${gasto.dataMax = gasto.pago == true ? '--------------' : gasto.dataMax}<b></td>
+                <td>
+                    <button class="btn btn-primary btn-sm mr-2" style="background-color: #28a745; border-color: #28a745;" onclick="atualizarGasto(${gasto.id})"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteGasto('${gasto.tipo}')"><i class="fas fa-trash-alt"></i></button>
+                </td>
               `;
               tabelaBody.appendChild(tr);
             });
@@ -168,6 +172,30 @@ async function updateSalario() {
         }, 1200);
     } 
 }
+
+async function deleteGasto(tipo) {
+
+    
+    const confirmacao = confirm("Tem certeza que deseja excluir essa despesa?")
+
+    if(confirmacao) {
+        try {
+            
+            document.getElementById("loading-overlay").style.display = "block";
+
+            var endpoint = `${API_URL}/gasto/${tipo}`;
+            const response = await axios.delete(endpoint);
+
+            if(response.data.sucesso === true) {
+                redirectTo("lista-gastos.html")
+            }
+        } catch (error) {
+            console.log(error);
+        } finally {
+            document.getElementById("loading-overlay").style.display = "none";
+        }
+    }
+} 
 
 function redirectTo(page) {
     window.location.href = page;
