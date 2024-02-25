@@ -81,6 +81,13 @@
             width: 160px; /* Ajuste o valor conforme necessário */
             height: 160px; /* Ajuste o valor conforme necessário */
         }   
+
+        .square-card {
+            height: 200px;
+            width: 350px; /* Ajuste a altura conforme desejado */
+            border-radius: 10px; /* Adiciona bordas arredondadas */
+            text-align: center;
+        }
     </style>
 </head>
 <body>  
@@ -102,6 +109,33 @@
             </tbody>
         </table>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center">
+            <!-- Card Total a Pagar -->
+            <div class="card text-white bg-secondary square-card">
+                <div class="card-header">Total a Pagar no Mês</div>
+                <div class="card-body">
+                    <h5 class="card-title">Valor Total</h5>
+                    <p class="card-text" id="totalAPagar">0.00</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-md-6 d-flex justify-content-center">
+            <!-- Card Máximo a Gastar -->
+            <div class="card text-white bg-secondary square-card">
+                <div class="card-header">Máximo a Gastar no Mês</div>
+                <div class="card-body">
+                    <h5 class="card-title">Valor Máximo</h5>
+                    <p class="card-text" id="maxAGastar">0.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
     <div id="loading-overlay">
         <div id="loading">
             <img src="Images/loading-cat.gif">
