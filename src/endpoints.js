@@ -176,7 +176,7 @@ async function updateSalario() {
 async function deleteGasto(tipo) {
 
     
-    const confirmacao = confirm("Tem certeza que deseja excluir essa despesa?")
+    const confirmacao = confirm(`DESPESA SELECIONADA -> ${tipo} \nTem certeza que deseja excluir essa despesa?`);
 
     if(confirmacao) {
         try {
