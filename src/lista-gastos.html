@@ -81,13 +81,6 @@
             width: 160px; /* Ajuste o valor conforme necessário */
             height: 160px; /* Ajuste o valor conforme necessário */
         }   
-
-        .square-card {
-            height: 200px;
-            width: 350px; /* Ajuste a altura conforme desejado */
-            border-radius: 10px; /* Adiciona bordas arredondadas */
-            text-align: center;
-        }
     </style>
 </head>
 <body>  
@@ -109,32 +102,68 @@
             </tbody>
         </table>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-6 d-flex justify-content-center">
-            <!-- Card Total a Pagar -->
-            <div class="card text-white bg-secondary square-card">
-                <div class="card-header">Total a Pagar no Mês</div>
-                <div class="card-body">
-                    <h5 class="card-title">Valor Total</h5>
-                    <p class="card-text" id="totalAPagar">0.00</p>
+    <div class="container">
+        <div class="row justify-content-end d-flex">
+            <div class="col-sm-5 mb-3">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header text-center">Total a Pagar no Mês</div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center" id="total-pagar"></h2>
+                    </div>
                 </div>
             </div>
-        </div>
-    
-        <div class="col-md-6 d-flex justify-content-center">
-            <!-- Card Máximo a Gastar -->
-            <div class="card text-white bg-secondary square-card">
-                <div class="card-header">Máximo a Gastar no Mês</div>
-                <div class="card-body">
-                    <h5 class="card-title">Valor Máximo</h5>
-                    <p class="card-text" id="maxAGastar">0.00</p>
+            <div class="col-sm-5 mb-3">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header text-center">Máximo a Gastar no Mês</div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center" id="max-gastar"></h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Editar Despesa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="textInput" style="color: black;">Descrição:</label>
+              <input type="text" class="form-control" id="textInput" readonly>
+            </div>
+            <div class="form-group">
+              <label for="numberInput" style="color: black;">Valor:</label>
+              <input type="number" class="form-control" id="numberInput">
+            </div>
+            <div class="form-group">
+              <label for="selectInput" style="color: black;">Situação:</label>
+              <select class="form-control" id="selectInput">
+                <option value="Pago">Pago</option>
+                <option value="Pendente">Pendente</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dateInput" style="color: black;">Data Máxima p/ Pagamento:</label>
+              <input type="date" class="form-control" id="dateInput" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick="updateGasto()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     
     <div id="loading-overlay">
         <div id="loading">
