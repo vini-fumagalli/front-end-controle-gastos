@@ -19,13 +19,19 @@ async function getListaGastos() {
 
         tabelaBody.innerHTML = '';
 
-        if(response.data.resposta.length === 0) {
+        if(listaGastos === null) {
             tabelaBody.innerHTML = '';
 
             const msg = document.createElement('h1');
             msg.classList.add('text-center', 'mt-5');
             msg.textContent = 'Nenhum despesa registrada no sistema';
             tabelaContainer.appendChild(msg);
+            
+            var totalPagar = document.getElementById('total-pagar');
+            totalPagar.innerText = `${total.toFixed(2).replace(".", ",")} R$`;
+
+            var maximoGasto = document.getElementById('max-gastar');
+            maximoGasto.innerText = `${gastoMax.toFixed(2).replace(".", ",")} R$`;
         }
         else {
             listaGastos.forEach(gasto => {
@@ -38,7 +44,7 @@ async function getListaGastos() {
                 <td><b>${gasto.dataMax = gasto.pago == true ? '--------------' : gasto.dataMax}<b></td>
                 <td>
                     <button class="btn btn-primary btn-sm mr-2" data-toggle="modal" data-target="#exampleModal" style="background-color: #28a745; border-color: #28a745;" onclick="fillFieldsUpdate('${gasto.tipo}', ${gasto.valor}, ${gasto.pago}, '${gasto.dataMax}')"><i class="fas fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteGasto('${gasto.tipo}')"><i class="fas fa-trash-alt"></i></button>
+                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDeleteModal" onclick="fillFieldsDelete('${gasto.tipo}')"><i class="fas fa-trash-alt"></i></button>
                 </td>
               `;
               tabelaBody.appendChild(tr);
@@ -80,6 +86,10 @@ function fillFieldsUpdate(descricao, valor, situacao, dataMax) {
 
 }
 
+function fillFieldsDelete(descricao) {
+
+    document.getElementById('confirmDeleteModalLabel').textContent = `EXCLUIR ${descricao}`;
+}
 
 async function updateGasto() {
 
@@ -236,27 +246,25 @@ async function updateSalario() {
     } 
 }
 
-async function deleteGasto(tipo) {
+async function deleteGasto() {
 
-    
-    const confirmacao = confirm(`DESPESA SELECIONADA -> ${tipo} \n\nTem certeza que deseja excluir essa despesa?`);
+    try {
+        
+        document.getElementById("loading-overlay").style.display = "block";
 
-    if(confirmacao) {
-        try {
-            
-            document.getElementById("loading-overlay").style.display = "block";
+        var tituloModal = document.getElementById('confirmDeleteModalLabel').textContent;
+        var tipo = tituloModal.replace('EXCLUIR ', '');
 
-            var endpoint = `${API_URL}/gasto/${tipo}`;
-            const response = await axios.delete(endpoint);
+        var endpoint = `${API_URL}/gasto/${tipo}`;
+        const response = await axios.delete(endpoint);
 
-            if(response.data.sucesso === true) {
-                redirectTo("lista-gastos.html")
-            }
-        } catch (error) {
-            console.log(error);
-        } finally {
-            document.getElementById("loading-overlay").style.display = "none";
+        if(response.data.sucesso === true) {
+            redirectTo("lista-gastos.html");
         }
+    } catch (error) {
+        console.log(error);
+    } finally {
+        document.getElementById("loading-overlay").style.display = "none";
     }
 } 
 
