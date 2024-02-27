@@ -81,6 +81,62 @@
             width: 160px; /* Ajuste o valor conforme necessário */
             height: 160px; /* Ajuste o valor conforme necessário */
         }   
+
+        .custom-card {
+      background-color: #293642; /* Cor de fundo do card */
+      color: #fff; /* Cor do texto */
+    }
+
+    .custom-input {
+      background-color: #3d4852; /* Cor de fundo dos inputs */
+      border-color: #28a745; /* Cor da borda dos inputs */
+      color: #fff; /* Cor do texto dos inputs */
+    }
+
+    .custom-input:focus, .custom-input:focus-visible {
+      background-color: #3d4852; /* Cor de fundo dos inputs quando em foco */
+      border-color: #28a745; /* Cor da borda dos inputs quando em foco */
+      color: #fff; /* Cor do texto dos inputs quando em foco */
+      outline-color: #28a745;
+    }
+
+    .custom-input:hover {
+      background-color: #434f5a; /* Cor de fundo dos inputs quando hover */
+      border-color: #28a745; /* Cor da borda dos inputs quando hover */
+      color: #fff; /* Cor do texto dos inputs quando hover */
+    }
+
+    .custom-button {
+      background-color: #28a745; /* Cor de fundo dos botões */
+      border-color: #28a745; /* Cor da borda dos botões */
+    }
+
+    .custom-button:hover {
+      background-color: #218838; /* Cor de fundo dos botões quando hover */
+      border-color: #218838; /* Cor da borda dos botões quando hover */
+    }
+
+    .custom-button:focus {
+      outline-color: #28a745;
+      background-color: #28a745; /* Cor de fundo dos botões quando em foco */
+      border-color: #28a745; /* Cor da borda dos botões quando em foco */
+    }
+
+    .custom-button.close-button {
+  background-color: #1095ee; /* Cor de fundo do botão */
+  border-color: #1095ee; /* Cor da borda do botão */
+}
+
+.custom-button.close-button:hover {
+  background-color: #007bff; /* Cor de fundo do botão ao passar o mouse */
+  border-color: #007bff; /* Cor da borda do botão ao passar o mouse */
+}
+
+.custom-button.close-button:focus {
+  outline-color: #1095ee;
+  background-color: #1095ee; /* Cor de fundo do botão quando em foco */
+  border-color: #1095ee; /* Cor da borda do botão quando em foco */
+}
     </style>
 </head>
 <body>  
@@ -124,45 +180,46 @@
     </div>
 
     <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Editar Despesa</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="textInput" style="color: black;">Descrição:</label>
-              <input type="text" class="form-control" id="textInput" readonly>
-            </div>
-            <div class="form-group">
-              <label for="numberInput" style="color: black;">Valor:</label>
-              <input type="number" class="form-control" id="numberInput">
-            </div>
-            <div class="form-group">
-              <label for="selectInput" style="color: black;">Situação:</label>
-              <select class="form-control" id="selectInput">
-                <option value="Pago">Pago</option>
-                <option value="Pendente">Pendente</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="dateInput" style="color: black;">Data Máxima p/ Pagamento:</label>
-              <input type="date" class="form-control" id="dateInput" required>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary" onclick="updateGasto()">Salvar</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content custom-card">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="color: #28a745;">EDIÇÃO DE DESPESA</h5>
+            <button type="button" style="color: #1ada47;" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="textInput" style="color: #28a745;"><b>Descrição:</b></label>
+                <input type="text" class="form-control custom-input" id="textInput" style="color: white; background-color:rgb(117, 117, 117);" readonly>
+              </div>
+              <div class="form-group">
+                <label for="numberInput" style="color: #28a745;"><b>Valor:</b></label>
+                <input type="number" class="form-control custom-input" id="numberInput">
+              </div>
+              <div class="form-group">
+                <label for="selectInput" style="color: #28a745;"><b>Situação:</b></label>
+                <select class="form-control custom-input" id="selectInput">
+                  <option value="Pago">Pago</option>
+                  <option value="Pendente">Pendente</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dateInput" style="color: #28a745;"><b>Data Máxima p/ Pagamento:</b></label>
+                <input type="date" class="form-control custom-input" id="dateInput" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal" >Fechar</button>
+            <button type="button" class="btn btn-primary custom-button" onclick="updateGasto()">Salvar</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    
 
   <!-- Modal de Confirmação de Exclusão -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
