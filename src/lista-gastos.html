@@ -128,8 +128,8 @@
 }
 
 .custom-button.close-button:hover {
-  background-color: #007bff; /* Cor de fundo do botão ao passar o mouse */
-  border-color: #007bff; /* Cor da borda do botão ao passar o mouse */
+  background-color: #1c5da3; /* Cor de fundo do botão ao passar o mouse */
+  border-color: #1c5da3; /* Cor da borda do botão ao passar o mouse */
 }
 
 .custom-button.close-button:focus {
@@ -182,7 +182,7 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content custom-card">
+        <div class="modal-content custom-card" style="border-color: #28a745;">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel" style="color: #28a745;">EDIÇÃO DE DESPESA</h5>
             <button type="button" style="color: #1ada47;" class="close" data-dismiss="modal" aria-label="Close">
@@ -222,7 +222,7 @@
     
 
   <!-- Modal de Confirmação de Exclusão -->
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -240,7 +240,31 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+  <!-- Modal de Confirmação de Exclusão -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content" style="background-color: #293642; border-color: #28a745;">
+          <div class="modal-header">
+              <h5 class="modal-title" id="confirmDeleteModalLabel" style="color: #28a745;"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white;">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body" style="color: #28a745;">
+              <b>Tem certeza de que deseja <b style="color: red;">excluir</b> esta despesa?</b>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" onclick="deleteGasto()">Excluir</button>
+          </div>
+      </div>
   </div>
+</div>
+
+
+
   
 
     
