@@ -39,6 +39,51 @@
         width: 160px; /* Ajuste o valor conforme necessário */
         height: 160px; /* Ajuste o valor conforme necessário */
       }   
+
+      .custom-card {
+      background-color: #293642;
+      color: #28a745;
+      border-color: #28a745;
+    }
+
+    .custom-input {
+      background-color: #3d4852; /* Cor de fundo dos inputs */
+      border-color: #28a745; /* Cor da borda dos inputs */
+      color: #fff; /* Cor do texto dos inputs */
+    }
+
+    .custom-input:focus, .custom-input:focus-visible {
+      background-color: #3d4852; /* Cor de fundo dos inputs quando em foco */
+      border-color: #28a745; /* Cor da borda dos inputs quando em foco */
+      color: #fff; /* Cor do texto dos inputs quando em foco */
+      outline-color: #28a745;
+    }
+
+    .custom-input:hover {
+      background-color: #434f5a; /* Cor de fundo dos inputs quando hover */
+      border-color: #28a745; /* Cor da borda dos inputs quando hover */
+      color: #fff; /* Cor do texto dos inputs quando hover */
+    }
+
+    .custom-button {
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+
+    .custom-button:hover {
+      background-color: #218838; /* Cor de fundo dos botões quando hover */
+      border-color: #218838; /* Cor da borda dos botões quando hover */
+    }
+
+    .custom-button:focus {
+      outline-color: #28a745;
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+
+    .label-salario, .label-payday {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body class="d-flex align-items-center">
@@ -46,27 +91,32 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div id="update-successful" class="alert alert-danger" style="display: none; text-align: center; background-color: #28a745; color: rgb(228, 228, 228); border-color: #2a7c3d;"><b>SALÁRIO REGISTRADO COM SUCESSO</b></div>
-        <div class="card">
+        <div class="card custom-card">
           <div class="card-header">
-            <h3 class="text-center">Informe sua receita mensal <br /> antes de prosseguir</h3>
+            <h3 class="text-center">Informe sua receita mensal e<br /> dia de pagamento antes de prosseguir</h3>
           </div>
           <div class="card-body">
             <form onsubmit="event.preventDefault(); updateSalario();">
               <div class="form-group">
-                <label for="salary">Salário:</label>
-                <input type="text" class="form-control" id="salary" placeholder="Digite seu salário" pattern="[0-9]+([\.,][0-9]+)?" title="Apenas números são aceitos neste campo">
+                <label for="salary" class="label-salario">Salário:</label>
+                <input type="text" class="form-control custom-input" id="salary" placeholder="Digite seu salário" pattern="[0-9]+([\.,][0-9]+)?" title="Apenas números são aceitos neste campo">
               </div>
-              <button type="submit" class="btn btn-primary btn-block">Enviar Salário</button>
+              <div class="form-group">
+                <label for="payDay" class="label-payday">Dia de pagamento (1-31):</label>
+                <input type="number" class="form-control custom-input" id="payDay" placeholder="Dia de pagamento" min="1" max="31">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block custom-button">Enviar Salário</button>
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div id="loading-overlay">
-    <div id="loading">
-        <img src="Images/loading-cat.gif">
-    </div>
+</body>
+<div id="loading-overlay">
+  <div id="loading">
+      <img src="Images/loading-cat.gif">
   </div>
+</div>
 </body>
 </html>

@@ -7,7 +7,7 @@ function createWindow() {
         height: 540
     });
 
-    win.loadFile('src/login.html');
+    win.loadFile('src/update-salario.html');
 }
 
 app.whenReady().then(createWindow);
