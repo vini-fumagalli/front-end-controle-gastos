@@ -13,7 +13,7 @@ async function getListaGastos() {
         const total = response.data.resposta.total;
         const gastoMax = response.data.resposta.gastoMax;
         const listaGastos = response.data.resposta.gastos;
-        console.log(listaGastos);
+        console.log(response.data.resposta);
         const tabelaBody = document.querySelector('#tabela tbody');
         const tabelaContainer = document.querySelector('.container');
 
@@ -38,7 +38,7 @@ async function getListaGastos() {
                 const tr = document.createElement('tr');
     
                 tr.innerHTML = `
-                <td><b>${gasto.tipo}<b></td>
+                <td class="truncate-text"><b>${gasto.tipo}<b></td>
                 <td><b>${gasto.valor.toFixed(2).replace(".", ",")}<b></td>
                 <td><b>${gasto.pago == true ? 'Pago' : 'Pendente'}<b></td>
                 <td><b>${gasto.dataMax = gasto.pago == true ? '--------------' : gasto.dataMax}<b></td>
@@ -244,6 +244,32 @@ async function updateSalario() {
             redirectTo('lista-gastos.html');
         }, 1200);
     } 
+}
+
+async function createGasto() {
+
+    document.getElementById('loading-overlay').style.display = 'block';
+
+    var tipoInput = document.getElementById('descriptionInput').value;
+    var valorInput = document.getElementById('amountInput').value;
+    var dataMaxInput = document.getElementById('dueDateInput').value;
+    dataMaxInput = new Date(dataMaxInput);
+
+    var createGastoDto = {
+        tipo: tipoInput,
+        valor: valorInput,
+        dataMax: dataMaxInput
+    };
+
+    var endpoint = `${API_URL}/gasto`
+    const response = await axios.post(endpoint, createGastoDto);
+    const sucesso = response.data.sucesso;
+    
+    if(sucesso === true) {
+        redirectTo('lista-gastos.html')
+    };
+
+    document.getElementById('loading-overlay').style.display = 'none';
 }
 
 async function deleteGasto() {
