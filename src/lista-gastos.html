@@ -19,190 +19,182 @@
     </script>
 </head>
 <body>  
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
-        <h1>Tabela de Despesas</h1>
-        <!-- Botão de Deslogar -->
-        <button class="btn btn-danger logout-button mb-5" data-toggle="modal" data-target="#signOffModal">
-          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
-            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
-          </svg>
-            <b>DESLOGAR</b>
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>Tabela de Despesas</h1>
+      <!-- Botão de Deslogar -->
+      <button class="btn btn-danger logout-button mb-5" data-toggle="modal" data-target="#signOffModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+          <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+        </svg>
+          <b>DESLOGAR</b>
+      </button>
+  </div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div></div> <!-- Placeholder para manter o espaçamento entre os botões -->
+        <button class="btn btn-primary custom-button create-button ml-auto" data-toggle="modal" data-target="#createModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+          </svg> <b>ADICIONAR DESPESA</b>
         </button>
     </div>
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <div></div> <!-- Placeholder para manter o espaçamento entre os botões -->
-          <button class="btn btn-primary custom-button create-button ml-auto" data-toggle="modal" data-target="#createModal">
-            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-            </svg> <b>ADICIONAR DESPESA</b>
-          </button>
-      </div>
-      <div class="scrollable">
-        <table id="tabela" class="table">
-            <thead class="thead-dark"> <!-- Bootstrap class para cabeçalho escuro -->
-            <tr>
-                <th scope="col" style="color: #1ada47;" class="text-center" >DESCRIÇÃO</th>
-                <th scope="col" style="color: #1ada47;" class="text-center">VALOR (R$)</th>
-                <th scope="col" style="color: #1ada47;" class="text-center">SITUAÇÃO</th>
-                <th scope="col" style="color: #1ada47;" class="text-center">DATA MÁXIMA P/ PAGAR</th>
-                <th scope="col" style="color: #1ada47;" class="text-center">AÇÕES</th> <!-- Coluna para botões de ações -->
-                <!-- Adicione mais colunas conforme necessário -->
-            </tr>
-            </thead>
-            <tbody>
-            <!-- As linhas da tabela serão adicionadas pelo JS aqui -->
-            </tbody>
-        </table>
-      </div>
+    <div class="scrollable">
+      <table id="tabela" class="table">
+          <thead class="thead-dark"> <!-- Bootstrap class para cabeçalho escuro -->
+          <tr>
+              <th scope="col" style="color: #1ada47;" class="text-center" >DESCRIÇÃO</th>
+              <th scope="col" style="color: #1ada47;" class="text-center">VALOR (R$)</th>
+              <th scope="col" style="color: #1ada47;" class="text-center">SITUAÇÃO</th>
+              <th scope="col" style="color: #1ada47;" class="text-center">DATA MÁXIMA P/ PAGAR</th>
+              <th scope="col" style="color: #1ada47;" class="text-center">AÇÕES</th> <!-- Coluna para botões de ações -->
+          </tr>
+          </thead>
+          <tbody>
+          <!-- As linhas da tabela serão adicionadas pelo JS aqui -->
+          </tbody>
+      </table>
     </div>
-
-
+  </div>
     <!-- Cards -->
-    <div class="container">
-        <div class="row justify-content-end d-flex">
-            <div class="col-sm-5 mb-3">
-                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-center">Total a Pagar no Mês</div>
-                    <div class="card-body">
-                        <h2 class="card-title text-center" id="total-pagar"></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-5 mb-3">
-                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-center">Máximo a Gastar no Mês</div>
-                    <div class="card-body">
-                        <h2 class="card-title text-center" id="max-gastar"></h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+  <div class="container">
+      <div class="row justify-content-end d-flex">
+          <div class="col-sm-5 mb-3">
+              <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-center">Total a Pagar no Mês</div>
+                  <div class="card-body">
+                      <h2 class="card-title text-center" id="total-pagar"></h2>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-5 mb-3">
+              <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-center">Máximo a Gastar no Mês</div>
+                  <div class="card-body">
+                      <h2 class="card-title text-center" id="max-gastar"></h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
     <!-- Modal de Edição -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content custom-card" style="border-color: #1ada47;">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" style="color: #1ada47;">EDIÇÃO DE DESPESA</h5>
-            <button type="button" style="color: #1ada47;" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="textInput" style="color: #1ada47;"><b>Descrição:</b></label>
-                <input type="text" class="form-control custom-input" id="textInput" style="color: white; background-color:rgb(117, 117, 117);" readonly>
-              </div>
-              <div class="form-group">
-                <label for="numberInput" style="color: #1ada47;"><b>Valor:</b></label>
-                <input type="number" class="form-control custom-input" id="numberInput" placeholder="Digite o valor">
-              </div>
-              <div class="form-group">
-                <label for="selectInput" style="color: #1ada47;"><b>Situação:</b></label>
-                <select class="form-control custom-input" id="selectInput">
-                  <option value="Pago">Pago</option>
-                  <option value="Pendente">Pendente</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="dateInput" style="color: #1ada47;"><b>Data Máxima p/ Pagamento:</b></label>
-                <input type="date" class="form-control custom-input" id="dateInput" required>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal" >Fechar</button>
-            <button type="button" class="btn btn-primary custom-button" onclick="updateGasto()">Salvar</button>
-          </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content custom-card" style="border-color: #1ada47;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color: #1ada47;">EDIÇÃO DE DESPESA</h5>
+          <button type="button" style="color: #1ada47;" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="textInput" style="color: #1ada47;"><b>Descrição:</b></label>
+              <input type="text" class="form-control custom-input" id="textInput" style="color: white; background-color:rgb(117, 117, 117);" readonly>
+            </div>
+            <div class="form-group">
+              <label for="numberInput" style="color: #1ada47;"><b>Valor:</b></label>
+              <input type="number" class="form-control custom-input" id="numberInput" placeholder="Digite o valor">
+            </div>
+            <div class="form-group">
+              <label for="selectInput" style="color: #1ada47;"><b>Situação:</b></label>
+              <select class="form-control custom-input" id="selectInput">
+                <option value="Pago">Pago</option>
+                <option value="Pendente">Pendente</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dateInput" style="color: #1ada47;"><b>Data Máxima p/ Pagamento:</b></label>
+              <input type="date" class="form-control custom-input" id="dateInput" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal" >Fechar</button>
+          <button type="button" class="btn btn-primary custom-button" onclick="updateGasto()">Salvar</button>
         </div>
       </div>
     </div>
-
+  </div>
   <!-- Modal de Confirmação de Exclusão -->
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content" style="background-color: #293642; border-color: #28a745;">
-          <div class="modal-header">
-              <h5 class="modal-title" id="confirmDeleteModalLabel" style="color:#1ada47"></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true" style="color: #1ada47;">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body" style="color:#1ada47">
-              <b>Tem certeza de que deseja <b style="color: red;">excluir</b> esta despesa?</b>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-danger" onclick="deleteGasto()">Excluir</button>
-          </div>
-      </div>
-  </div>
-</div>
-
-<!-- Modal de Confirmação de Sign Off -->
-<div class="modal fade" id="signOffModal" tabindex="-1" role="dialog" aria-labelledby="signOffModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content" style="background-color: #293642; border-color: red">
-          <div class="modal-header">
-              <h5 class="modal-title" id="signOffModalLabel" style="color:red">DESLOGAR USUÁRIO</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true" style="color: #1ada47;">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body" style="color:white">
-              <b>Tem certeza de que deseja <b style="color: red;">se deslogar?</b>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-danger" onclick="signOff()">Deslogar</button>
-          </div>
-      </div>
-  </div>
-</div>
-
-<!-- Modal de Create -->
-<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content custom-card" style="border-color: #1ada47;">
-      <div class="modal-header">
-        <h5 class="modal-title" id="createModalLabel" style="color:#1ada47">ADICIONAR DESPESA</h5>
-        <button style="color: #1ada47;" type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="descriptionInput" style="color: #1ada47;"><b>Descrição:</b></label>
-            <input type="text" class="form-control custom-input" id="descriptionInput" placeholder="Digite o nome da despesa">
-          </div>
-          <div class="form-group">
-            <label for="amountInput" style="color: #1ada47;"><b>Valor:</b></label>
-            <input type="number" class="form-control custom-input" id="amountInput" placeholder="Digite o valor">
-          </div>
-          <div class="form-group">
-            <label for="dueDateInput" style="color: #1ada47;"><b>Data Máxima p/ Pagamento:</b></label>
-            <input type="date" class="form-control custom-input" id="dueDateInput">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary custom-button" onclick="createGasto()">Adicionar</button>
-      </div>
-    </div>
-  </div>
-</div>
-    
-    <div id="loading-overlay">
-        <div id="loading">
-            <img src="Images/loading-cat.gif">
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #293642; border-color: #28a745;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel" style="color:#1ada47"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color: #1ada47;">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color:#1ada47">
+                <b>Tem certeza de que deseja <b style="color: red;">excluir</b> esta despesa?</b>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="deleteGasto()">Excluir</button>
+            </div>
         </div>
     </div>
+  </div>
+<!-- Modal de Confirmação de Sign Off -->
+  <div class="modal fade" id="signOffModal" tabindex="-1" role="dialog" aria-labelledby="signOffModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #293642; border-color: red">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signOffModalLabel" style="color:red">DESLOGAR USUÁRIO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color: #1ada47;">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color:white">
+                <b>Tem certeza de que deseja <b style="color: red;">se deslogar?</b>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="signOff()">Deslogar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+<!-- Modal de Create -->
+  <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content custom-card" style="border-color: #1ada47;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createModalLabel" style="color:#1ada47">ADICIONAR DESPESA</h5>
+          <button style="color: #1ada47;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="descriptionInput" style="color: #1ada47;"><b>Descrição:</b></label>
+              <input type="text" class="form-control custom-input" id="descriptionInput" placeholder="Digite o nome da despesa">
+            </div>
+            <div class="form-group">
+              <label for="amountInput" style="color: #1ada47;"><b>Valor:</b></label>
+              <input type="number" class="form-control custom-input" id="amountInput" placeholder="Digite o valor">
+            </div>
+            <div class="form-group">
+              <label for="dueDateInput" style="color: #1ada47;"><b>Data Máxima p/ Pagamento:</b></label>
+              <input type="date" class="form-control custom-input" id="dueDateInput">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary custom-button close-button" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary custom-button" onclick="createGasto()">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="loading-overlay">
+      <div id="loading">
+          <img src="Images/loading-cat.gif">
+      </div>
+  </div>
 </body>
 </html>
