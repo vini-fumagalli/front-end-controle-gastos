@@ -163,11 +163,13 @@ async function signIn() {
 async function signOff() {
 
     try {
+        document.getElementById('loading-overlay').style.display = "block";
 
         var endpoint = `${API_URL}/login/sign-off`;
         const response = await axios.post(endpoint, null);
+        console.log(response);
 
-        const sucesso = response.data.response;
+        const sucesso = response.data.sucesso;
 
         if(sucesso === true) {
             redirectTo("login.html");
@@ -175,6 +177,9 @@ async function signOff() {
 
     } catch(error) {
         console.log(error);
+    }
+    finally {
+        document.getElementById('loading-overlay').style.display = "none";
     }
 } 
 

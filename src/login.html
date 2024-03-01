@@ -5,81 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="login.css">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="endpoints.js"></script>
-  <style>
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      background-color: #2c3e50; /* Cor de fundo escura */
-    }
-
-    .custom-card {
-      background-color: #293642;
-      color: #28a745;
-    }
-
-    .custom-input {
-      background-color: #3d4852; /* Cor de fundo dos inputs */
-      border-color: #28a745; /* Cor da borda dos inputs */
-      color: #fff; /* Cor do texto dos inputs */
-    }
-
-    .custom-input:focus, .custom-input:focus-visible {
-      background-color: #3d4852; /* Cor de fundo dos inputs quando em foco */
-      border-color: #28a745; /* Cor da borda dos inputs quando em foco */
-      color: #fff; /* Cor do texto dos inputs quando em foco */
-      outline-color: #28a745;
-    }
-
-    .custom-input:hover {
-      background-color: #434f5a; /* Cor de fundo dos inputs quando hover */
-      border-color: #28a745; /* Cor da borda dos inputs quando hover */
-      color: #fff; /* Cor do texto dos inputs quando hover */
-    }
-
-    .custom-button {
-      background-color: #28a745;
-      border-color: #28a745;
-    }
-
-    .custom-button:hover {
-      background-color: #218838; /* Cor de fundo dos botões quando hover */
-      border-color: #218838; /* Cor da borda dos botões quando hover */
-    }
-
-    .custom-button:focus {
-      outline-color: #28a745;
-      background-color: #28a745;
-      border-color: #28a745;
-    }
-
-    #loading-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(39, 34, 34, 0.8);
-            z-index: 9999;
-        }
-
-        #loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        #loading img {
-            width: 160px; /* Ajuste o valor conforme necessário */
-            height: 160px; /* Ajuste o valor conforme necessário */
-        }   
-  </style>
 </head>
 <body class="d-flex align-items-center">
   <div class="container">
