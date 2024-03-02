@@ -7,7 +7,7 @@ function createWindow() {
         height: 540
     });
 
-    win.loadFile('src/sign-up.html');
+    win.loadFile('src/login.html');
 }
 
 app.whenReady().then(createWindow);
