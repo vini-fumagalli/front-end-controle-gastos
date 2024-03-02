@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-  background-color: #2c3e50; /* Cor de fundo escura */
+  background-color: #2c3e50; 
 }
 
 .custom-card {
@@ -13,22 +13,22 @@ body {
 }
 
 .custom-input {
-  background-color: #3d4852; /* Cor de fundo dos inputs */
-  border-color: #28a745; /* Cor da borda dos inputs */
-  color: #fff; /* Cor do texto dos inputs */
+  background-color: #3d4852; 
+  border-color: #28a745; 
+  color: #fff; 
 }
 
 .custom-input:focus, .custom-input:focus-visible {
-  background-color: #3d4852; /* Cor de fundo dos inputs quando em foco */
-  border-color: #28a745; /* Cor da borda dos inputs quando em foco */
-  color: #fff; /* Cor do texto dos inputs quando em foco */
+  background-color: #3d4852; 
+  border-color: #28a745; 
+  color: #fff; 
   outline-color: #28a745;
 }
 
 .custom-input:hover {
-  background-color: #434f5a; /* Cor de fundo dos inputs quando hover */
-  border-color: #28a745; /* Cor da borda dos inputs quando hover */
-  color: #fff; /* Cor do texto dos inputs quando hover */
+  background-color: #434f5a; 
+  border-color: #28a745; 
+  color: #fff; 
 }
 
 .custom-button {
@@ -37,8 +37,8 @@ body {
 }
 
 .custom-button:hover {
-  background-color: #218838; /* Cor de fundo dos botões quando hover */
-  border-color: #218838; /* Cor da borda dos botões quando hover */
+  background-color: #218838; 
+  border-color: #218838; 
 }
 
 .custom-button:focus {
@@ -67,6 +67,6 @@ body {
 }
 
 #loading img {
-    width: 160px; /* Ajuste o valor conforme necessário */
-    height: 160px; /* Ajuste o valor conforme necessário */
+    width: 160px;
+    height: 160px;
 }   
