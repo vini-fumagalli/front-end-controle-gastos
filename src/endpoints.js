@@ -1,3 +1,4 @@
+//5213
 const API_URL = "http://localhost:5213/api";
 
  
@@ -24,7 +25,7 @@ async function getListaGastos() {
 
             const msg = document.createElement('h1');
             msg.classList.add('text-center', 'mt-5');
-            msg.textContent = 'Nenhum despesa registrada no sistema';
+            msg.textContent = 'Nenhuma despesa registrada no sistema';
             tabelaContainer.appendChild(msg);
             
             var totalPagar = document.getElementById('total-pagar');
